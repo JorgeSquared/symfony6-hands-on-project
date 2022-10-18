@@ -1,3 +1,7 @@
 controllers:
     resource: ../src/Controller/
     type: attribute
+
+my_first_index_route:
+    path: /
+    controller: App\Controller\HelloController::index
