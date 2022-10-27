@@ -12,17 +12,17 @@ class HelloController
     private array $greetingsList = [
             'Hello',
             'Jorge',
-            'How are you'
+            'How are you?'
         ];
 
-    #[Route('/')]
+    #[Route('/', name: 'app_index')]
     public function index(): Response
     {
-        return new Response('HI!');
+        return new Response(implode(', ', $this->greetingsList));
     }
 
-    #[Route('/show/{id}')]
-    public function show($id): Response
+    #[Route('/show/{id}', name: 'app_show_one')]
+    public function showOne ($id): Response
     {
         return new Response($this->greetingsList[$id]);
     }
