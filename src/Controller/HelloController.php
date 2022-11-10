@@ -15,13 +15,13 @@ class HelloController
             'How are you?'
         ];
 
-    #[Route('/', name: 'app_index')]
-    public function index(): Response
+    #[Route('/{limit<\d+>?3}', name: 'app_index')]
+    public function index(int $limit): Response
     {
-        return new Response(implode(', ', $this->greetingsList));
+        return new Response(implode(', ', array_slice($this->greetingsList, 0, $limit)));
     }
 
-    #[Route('/show/{id}', name: 'app_show_one')]
+    #[Route('/show/{id<\d+>}', name: 'app_show_one')]
     public function showOne ($id): Response
     {
         return new Response($this->greetingsList[$id]);
