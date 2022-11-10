@@ -1,3 +1,9 @@
-<div>
-    {{ messageList }}
-</div>
+{% extends 'base.html.twig' %}
+
+{% block title %}I've changed the title!{% endblock %}
+
+{% block body %}
+    <div>
+        {{ messageList }}
+    </div>
+{% endblock %}
