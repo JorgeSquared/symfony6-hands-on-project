@@ -22,10 +22,9 @@ class HelloController extends AbstractController
         return $this->render(
             'hello/index.html.twig',
                 [
-                    'messageList' => implode(', ', array_slice($this->messages, 0, $limit)),
+                    'messageList' => array_slice($this->messages, 0, $limit),
                 ]
         );
-        //return new Response(implode(', ', array_slice($this->greetingsList, 0, $limit)));
     }
 
     #[Route('/show/{id<\d+>}', name: 'app_show_one')]

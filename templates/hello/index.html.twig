@@ -4,6 +4,14 @@
 
 {% block body %}
     <div>
-        {{ messageList }}
+        {% if messageList|length > 0 %}
+            {% for message in messageList %}
+                <div>
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% else %}
+            There's nothin here yet!
+        {% endif %}
     </div>
 {% endblock %}
