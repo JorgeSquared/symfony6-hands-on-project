@@ -5,9 +5,9 @@
 {% block body %}
     <div>
         {% if messageList|length > 0 %}
-            {% for message in messageList|slice(0, limit) %}
+            {% for key, message in messageList|slice(0, limit) %}
                 <div>
-                    {{ message.message }}
+                    <a href="{{ path('app_show_one', { id: key }) }}">{{ message.message }}</a>
                 </div>
                 {{ include('hello/_message.html.twig', {message: message}) }}
             {% endfor %}
